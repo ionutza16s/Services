@@ -2,22 +2,16 @@ package ionutza.httpclientproject.request;
 
 import ionutza.httpclientproject.logging.Logger;
 import ionutza.httpclientproject.logging.LoggerFactory;
-import org.apache.http.client.HttpClient;
 
 /**
  * @author ioana.morari on 10/29/2014.
  */
-public class BaseRequest {
+public abstract class BaseRequest<T> {
 
-  private final static Logger LOGGER = LoggerFactory.getInstance(BaseRequest.class);
+  protected Logger logger = LoggerFactory.getInstance(getClass());
 
-  private HttpClient httpClient;
+  protected final static String BASE_URL = "http://www.google.com";
 
-  public void doPost() {
+  protected abstract T execute();
 
-  }
-
-  public void doGet() {
-
-  }
 }
