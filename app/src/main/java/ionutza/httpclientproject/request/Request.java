@@ -1,7 +1,6 @@
 package ionutza.httpclientproject.request;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import ionutza.httpclientproject.logging.Logger;
 import ionutza.httpclientproject.logging.LoggerFactory;
 import org.apache.http.HttpEntity;
@@ -9,11 +8,9 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 
 /**
  * @author ioana.morari on 10/29/2014.
@@ -43,8 +40,6 @@ public class Request {
 
   public void doPost() {
     LOGGER.d("doPost()");
-
-    HttpPost postMethod = new HttpPost();
 
   }
 

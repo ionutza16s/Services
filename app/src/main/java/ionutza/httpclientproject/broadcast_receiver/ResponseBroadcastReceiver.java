@@ -9,15 +9,15 @@ import java.lang.ref.WeakReference;
 /**
  * @author ioana.morari on 10/30/2014.
  */
-public class ResponseReceiver extends BroadcastReceiver {
+public class ResponseBroadcastReceiver extends BroadcastReceiver {
 
   private WeakReference<ResponseListener> responseListener;
 
-  public ResponseReceiver() {
+  public ResponseBroadcastReceiver() {
 
   }
 
-  public ResponseReceiver(ResponseListener listener) {
+  public ResponseBroadcastReceiver(ResponseListener listener) {
     this.responseListener = new WeakReference<ResponseListener>(listener);
   }
 

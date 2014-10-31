@@ -5,9 +5,11 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 
 /**
+ * TBD: implement Response from server using ResultReceiver mechanism
+ *
  * @author ioana.morari on 10/28/2014.
  */
-public class RequestResultReceiver extends ResultReceiver{
+public class RequestResultReceiver extends ResultReceiver {
 
   public RequestResultReceiver(Handler handler) {
     super(handler);

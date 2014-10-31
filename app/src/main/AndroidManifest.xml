@@ -24,7 +24,7 @@
         android:exported="false">
     </service>
 
-    <receiver android:name=".broadcast_receiver.ResponseReceiver">
+    <receiver android:name=".broadcast_receiver.ResponseBroadcastReceiver">
       <intent-filter>
         <action android:name="com.ioana.ResponseAction"/>
       </intent-filter>

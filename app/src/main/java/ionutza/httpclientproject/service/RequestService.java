@@ -2,16 +2,17 @@ package ionutza.httpclientproject.service;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
-import ionutza.httpclientproject.broadcast_receiver.ResponseReceiver;
 import ionutza.httpclientproject.logging.Logger;
 import ionutza.httpclientproject.logging.LoggerFactory;
 import ionutza.httpclientproject.presentation.MainActivity;
 import ionutza.httpclientproject.request.GetRequest;
+import ionutza.httpclientproject.request.MyResponse;
 import ionutza.httpclientproject.request.RequestType;
 
 
@@ -26,8 +27,6 @@ public class RequestService extends Service {
   private final static Logger LOGGER = LoggerFactory.getInstance(RequestService.class);
 
   private RequestHandler handler;
-
-  private ResponseReceiver responseReceiver = new ResponseReceiver();
 
   @Override
   public void onCreate() {
@@ -79,9 +78,13 @@ public class RequestService extends Service {
 
       if (requestType == RequestType.GOGGLE_GET) {
         GetRequest request = new GetRequest();
-        Object response = request.execute();
+        MyResponse response = request.execute();
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(MyResponse.MY_RESPONSE, response);
 
         Intent intent = new Intent(MainActivity.RESPONSE_ACTION);
+        intent.putExtras(bundle);
         sendBroadcast(intent);
       }
     }

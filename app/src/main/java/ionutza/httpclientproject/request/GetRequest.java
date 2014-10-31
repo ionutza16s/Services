@@ -6,11 +6,9 @@ package ionutza.httpclientproject.request;
 public class GetRequest extends BaseRequest {
 
   @Override
-  public Object execute() {
+  public MyResponse execute() {
 
     Request request = Request.getInstance();
-    request.doGet(BASE_URL);
-
-    return null;
+    return request.doGet(BASE_URL);
   }
 }
